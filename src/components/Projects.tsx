@@ -3,13 +3,12 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
 
 const projects = [
     {
         title: "Sistema de Gestión de Punto de Venta",
         category: "Retail & E-commerce",
-        description: "Solución integral para comercios minoristas. Control de stock en tiempo real, facturación electrónica y métricas de venta instantáneas.",
+        description: "Solución integral para comercios minoristas y mayoristas. Control de stock en tiempo real, facturación electrónica y métricas de venta instantáneas.",
         tags: ["React", "Node.js", "AWS"],
         gradient: "from-blue-600 to-cyan-500"
     },
