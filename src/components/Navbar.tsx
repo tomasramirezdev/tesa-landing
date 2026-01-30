@@ -11,9 +11,10 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="fixed top-0 w-full z-[100] bg-black/50 backdrop-blur-md border-b border-white/5">
+    return (
+        <nav className="fixed top-0 w-full z-[50] bg-black/50 backdrop-blur-md border-b border-white/5">
             <div className="max-w-7xl mx-auto px-6 h-28 flex items-center justify-between">
-                <Link href="/" className="flex items-center z-[101]">
+                <Link href="/" className="flex items-center z-[60]">
                     <Image
                         src="/logo.png"
                         alt="TESA Logo"
@@ -41,53 +42,62 @@ export default function Navbar() {
 
                 {/* Mobile Menu Toggle */}
                 <button
-                    className="md:hidden text-white z-[101] p-2"
-                    onClick={() => setIsOpen(!isOpen)}
+                    className="md:hidden text-white z-[60] p-2"
+                    onClick={() => setIsOpen(true)}
                 >
-                    {isOpen ? <X size={32} /> : <Menu size={32} />}
+                    <Menu size={32} />
                 </button>
             </div>
 
-            {/* Mobile Fullscreen Menu */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.2 }}
-                        className="fixed inset-0 bg-black z-[100] flex flex-col items-center justify-start pt-36 gap-10 md:hidden"
-                    >
+            {/* Foolproof Mobile Fullscreen Menu */}
+            {isOpen && (
+                <div className="fixed inset-0 z-[100] bg-black h-screen w-screen flex flex-col">
+                    {/* Close Button Header */}
+                    <div className="flex justify-end p-6 h-28 items-center">
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className="text-white p-2"
+                        >
+                            <X size={40} />
+                        </button>
+                    </div>
+
+                    {/* Links */}
+                    <div className="flex flex-col items-center justify-center flex-1 gap-12">
                         <Link
                             href="#servicios"
                             onClick={() => setIsOpen(false)}
-                            className="text-3xl font-light text-white hover:text-neutral-400 transition-colors tracking-widest uppercase"
+                            className="text-4xl font-bold text-white hover:text-gray-300 transition-colors tracking-tighter"
                         >
-                            Servicios
+                            SERVICIOS
                         </Link>
                         <Link
                             href="#proyectos"
                             onClick={() => setIsOpen(false)}
-                            className="text-3xl font-light text-white hover:text-neutral-400 transition-colors tracking-widest uppercase"
+                            className="text-4xl font-bold text-white hover:text-gray-300 transition-colors tracking-tighter"
                         >
-                            Proyectos
+                            PROYECTOS
                         </Link>
                         <Link
                             href="#nosotros"
                             onClick={() => setIsOpen(false)}
-                            className="text-3xl font-light text-white hover:text-neutral-400 transition-colors tracking-widest uppercase"
+                            className="text-4xl font-bold text-white hover:text-gray-300 transition-colors tracking-tighter"
                         >
-                            Nosotros
+                            NOSOTROS
                         </Link>
-                        <Button
-                            variant="outline"
-                            className="border-white/20 text-white hover:bg-white hover:text-black uppercase text-base tracking-widest h-14 px-12 mt-4"
-                        >
-                            Hablemos
-                        </Button>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+
+                        <div className="pt-8">
+                            <Button
+                                onClick={() => setIsOpen(false)}
+                                className="bg-white text-black hover:bg-gray-200 text-lg h-14 px-12 uppercase tracking-widest"
+                            >
+                                Hablemos
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </nav>
+    );
     );
 }
