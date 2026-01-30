@@ -56,32 +56,32 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] flex flex-col items-center justify-center gap-8 md:hidden"
+                        className="fixed inset-0 bg-black z-[100] flex flex-col items-center justify-start pt-36 gap-10 md:hidden"
                     >
                         <Link
                             href="#servicios"
                             onClick={() => setIsOpen(false)}
-                            className="text-2xl font-light text-white hover:text-neutral-400 transition-colors tracking-widest uppercase"
+                            className="text-3xl font-light text-white hover:text-neutral-400 transition-colors tracking-widest uppercase"
                         >
                             Servicios
                         </Link>
                         <Link
                             href="#proyectos"
                             onClick={() => setIsOpen(false)}
-                            className="text-2xl font-light text-white hover:text-neutral-400 transition-colors tracking-widest uppercase"
+                            className="text-3xl font-light text-white hover:text-neutral-400 transition-colors tracking-widest uppercase"
                         >
                             Proyectos
                         </Link>
                         <Link
                             href="#nosotros"
                             onClick={() => setIsOpen(false)}
-                            className="text-2xl font-light text-white hover:text-neutral-400 transition-colors tracking-widest uppercase"
+                            className="text-3xl font-light text-white hover:text-neutral-400 transition-colors tracking-widest uppercase"
                         >
                             Nosotros
                         </Link>
                         <Button
                             variant="outline"
-                            className="border-white/20 text-white hover:bg-white hover:text-black uppercase text-sm tracking-widest h-14 px-10 mt-4"
+                            className="border-white/20 text-white hover:bg-white hover:text-black uppercase text-base tracking-widest h-14 px-12 mt-4"
                         >
                             Hablemos
                         </Button>
